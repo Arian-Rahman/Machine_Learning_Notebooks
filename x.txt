@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:personal_expense_app/transaction.dart';
+
+// Container helps modify anything's visual
+
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final List <Transaction> transactions = [
+    Transaction(id: 't1',title:'Chips' ,amount: 25 ,date: DateTime.now()  )
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+      return Scaffold(
+      appBar: AppBar(
+         title: Text('Flutter App'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment:CrossAxisAlignment.stretch , //right to left , in column
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text("Chart"),
+              color: Colors.blueGrey,
+              elevation: 5,
+            ),
+          ),
+          Card(
+            color: Colors.red,
+            child: Text("List of TX"),
+          )
+        ],
+      )
+    );
+  }
+}
